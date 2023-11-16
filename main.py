@@ -6,7 +6,8 @@ from xml_handler import XMLHandler
 
 def getUniqueAttributes(inputFilename, outputFilename):
     """
-    This function 
+    This function that takes inputfilename with event attributes on all event tags
+    and the write unique attributes to outputfilename
     """
     uniqAttrs = set()
     with open(inputFilename, "r") as f:
@@ -27,6 +28,7 @@ def getUniqueAttributes(inputFilename, outputFilename):
 
 if __name__ == "__main__":
     start = time.time()
+    # Change network.xl with any other xml parser you want
     parse("network.xml", XMLHandler())
     end = time.time()
     print ("Total time: ", end - start)

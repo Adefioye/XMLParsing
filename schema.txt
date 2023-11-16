@@ -1,0 +1,57 @@
+CREATE DATABASE Transportation;
+
+# You can add PRIMARY KEY to node_id, I forgot during experimentation
+CREATE Table Node (
+ node_id VARCHAR(255) UNIQUE,
+ x VARCHAR(255),
+ y VARCHAR(255)
+);
+
+# You can add PRIMARY KEY to link_id, I forgot during experimentation
+CREATE Table Link (
+ link_id VARCHAR(255) UNIQUE,
+ from_node VARCHAR(255) REFERENCES Node(node_id),
+ to_node VARCHAR(255) REFERENCES Node(node_id),
+ link_length VARCHAR(255),
+ freespeed VARCHAR(255),
+ capacity VARCHAR(255),
+ permlanes VARCHAR(255),
+ oneway VARCHAR(255),
+ modes VARCHAR(255)
+);
+
+CREATE Table Event (
+ id SERIAL PRIMARY KEY,
+ legMode VARCHAR(255),
+ departureId VARCHAR(255),
+ purpose VARCHAR(255),
+ vehicleId VARCHAR(255),
+ atStop VARCHAR(255),
+ x VARCHAR(255),
+ amount VARCHAR(255),
+ transactionPartner VARCHAR(255),
+ version VARCHAR(255),
+ relativePosition VARCHAR(255),
+ dvrpVehicle VARCHAR(255),
+ y VARCHAR(255),
+ type VARCHAR(255),
+ person VARCHAR(255),
+ time VARCHAR(255),
+ transitRouteId VARCHAR(255),
+ delay VARCHAR(255),
+ destinationStop VARCHAR(255),
+ driverId VARCHAR(255),
+ link VARCHAR(255) REFERENCES Link(link_id),
+ dvrpMode VARCHAR(255),
+ transitLineId VARCHAR(255),
+ mode VARCHAR(255),
+ facility VARCHAR(255),
+ distance VARCHAR(255),
+ agent VARCHAR(255),
+ networkMode VARCHAR(255),
+ actType VARCHAR(255),
+ taskType VARCHAR(255),
+ request VARCHAR(255),
+ vehicle VARCHAR(255),
+ taskIndex VARCHAR(255)	
+);
